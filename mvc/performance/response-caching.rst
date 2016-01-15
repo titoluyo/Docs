@@ -15,7 +15,7 @@ What is Response Caching
 
 .. image:: response-caching/_static/proxy-and-cache.png
 
-The primary HTTP header used for caching is ``Cache-Control``. The `HTTP specification <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html>`_ details many options for this directive. Three common directives are:
+The primary HTTP header used for caching is ``Cache-Control``. The `HTTP 1.1 specification <https://tools.ietf.org/html/rfc7234#section-5.2>`_ details many options for this directive. Three common directives are:
 
 public
 	Indicates that the response may be cached.
@@ -28,7 +28,7 @@ no-cache
 
 .. note:: **Response caching does not cache responses on the web server**. It differs from `output caching <http://www.asp.net/mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs>`_, which would cache responses in memory on the server in earlier versions of ASP.NET and ASP.NET MVC. Output caching middleware is planned to be added to ASP.NET MVC 6 in a future release.
 
-Additional HTTP headers used for caching include ``Pragma`` and ``Vary``, which are described below. Learn more about `Caching in HTTP from the specification <https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html>`_.
+Additional HTTP headers used for caching include ``Pragma`` and ``Vary``, which are described below. Learn more about `Caching in HTTP from the specification <https://tools.ietf.org/html/rfc7234#section-3>`_.
 
 ResponseCache Attribute
 -----------------------
@@ -99,7 +99,7 @@ Produces the following headers:
 
 Cache Profiles
 ^^^^^^^^^^^^^^
-Instead of duplicating ``ResponseCache`` settings on many controller actions, cache profiles can be configured as options when setting up MVC in the ``ConfigureServices`` method in ``Startup``. Values found in a referenced cache profile will be used as the defaults by the ``ResponseCache`` attribute, and will be overridden by any properties specified on the attribute.
+Instead of duplicating ``ResponseCache`` settings on many controller action attributes, cache profiles can be configured as options when setting up MVC in the ``ConfigureServices`` method in ``Startup``. Values found in a referenced cache profile will be used as the defaults by the ``ResponseCache`` attribute, and will be overridden by any properties specified on the attribute.
 
 Setting up a cache profile:
 
